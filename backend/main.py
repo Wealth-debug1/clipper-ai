@@ -307,10 +307,9 @@ def create_clips_from_ai(video_path: Path, clips, words):
         generate_srt_for_clip(words, start_time, end_time, srt_path)
 
         cut_video_clip(video_path, start_time, end_time, output_path)
-
         created_clips.append({
             "caption_file": srt_filename,
-            "caption_url": f"http://127.0.0.1:8001/clips/{srt_filename}",
+            "caption_url": f"https://clipper-ai-backend.onrender.com/clips/{srt_filename}",
             "clip_number": clip_number,
             "title": clip.get("title"),
             "hook": clip.get("hook"),
@@ -318,9 +317,11 @@ def create_clips_from_ai(video_path: Path, clips, words):
             "end_time": end_time,
             "output_file": output_filename,
             "output_path": str(output_path),
-            "clip_url": f"http://127.0.0.1:8001/clips/{output_filename}",
+            "clip_url": f"https://clipper-ai-backend.onrender.com/clips/{output_filename}",
             "virality_score": clip.get("virality_score")
-        })
+})
+
+
 
     return created_clips
 
