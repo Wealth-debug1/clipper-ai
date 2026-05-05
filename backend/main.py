@@ -140,7 +140,9 @@ Format:
   }}
 ]
 
-Find 1 clips from this transcript.
+Find ONLY 1 viral short clip from this transcript.
+The clip MUST be between 20 and 35 seconds long.
+Do NOT return clips longer than 35 seconds.
 
 Transcript:
 {transcript_text}
@@ -292,6 +294,7 @@ def create_clips_from_ai(video_path: Path, clips, words):
         clip_number = clip.get("clip_number", len(created_clips) + 1)
         start_time = clip.get("start_time_estimate")
         end_time = clip.get("end_time_estimate")
+        end_time = "00:30"
 
         if not start_time or not end_time:
             continue
