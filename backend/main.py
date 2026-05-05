@@ -457,29 +457,41 @@ def process_video_job(job_id, video_path, filename):
 async def upload_video(file: UploadFile = File(...)):
     job_id = str(uuid.uuid4())
 
-    video_path = UPLOAD_DIR / file.filename
+    JOBS[job_id] = {
+        "status": "uploading",
+        "progress": 1,
+        "clips": [],
+        "message": "Upload started"
+    }
 
+    video_path = UPLOAD_DIR / file.filename
+        
     with open(video_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-
+        
     JOBS[job_id] = {
         "status": "uploaded",
         "progress": 10,
         "clips": [],
         "message": "Video uploaded"
     }
-
+        
     thread = threading.Thread(
         target=process_video_job,
-        args=(job_id, video_path, file.filename)
+        args=(job_id, video_path, file.filename) 
     )
     thread.start()
-
+        
     return {
         "job_id": job_id,
         "status": "processing",
         "progress": 10
     }
+
+
+
+
+
 
 @app.get("/job/{job_id}")
 def get_job(job_id: str):
