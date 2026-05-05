@@ -140,7 +140,7 @@ Format:
   }}
 ]
 
-Find 5 clips from this transcript.
+Find 1 clips from this transcript.
 
 Transcript:
 {transcript_text}
@@ -285,7 +285,7 @@ def cut_video_clip(video_path: Path, start_time: str, end_time: str, output_path
 def create_clips_from_ai(video_path: Path, clips, words):
     created_clips = []
 
-    for clip in clips:
+    for clip in clips[:1]:
         if "error" in clip:
             continue
 
