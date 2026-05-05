@@ -120,7 +120,7 @@ def poll_transcription(transcript_id: str):
         if result["status"] == "error":
             raise Exception(result.get("error", "Transcription failed"))
 
-        time.sleep(5)
+        time.sleep(1)
 
 
 def detect_viral_clips(transcript_text: str):
@@ -292,8 +292,7 @@ def create_clips_from_ai(video_path: Path, clips, words):
             continue
 
         clip_number = clip.get("clip_number", len(created_clips) + 1)
-        start_time = clip.get("start_time_estimate")
-        end_time = clip.get("end_time_estimate")
+        start_time = "00:00"
         end_time = "00:30"
 
         if not start_time or not end_time:
