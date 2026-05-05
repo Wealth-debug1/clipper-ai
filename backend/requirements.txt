@@ -8,3 +8,4 @@ moviepy
 yt-dlp
 python-multipart
 pydantic
+mediapipe==0.10.35
