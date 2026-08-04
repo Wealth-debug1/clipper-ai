@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+apscheduler
+python-dotenv
+openai
+requests
+PyJWT
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+cloudinary

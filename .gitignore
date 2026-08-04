@@ -1,10 +1,79 @@
+# ── Environment & secrets ──────────────────────────────────────────────────────
 .env
+.env.*
+!.env.example
 backend/.env
-backend/venv
-backend/venv_new
-backend/storage
-frontend/node_modules
-frontend/.next
-__pycache__
+backend/client_secret*.json
+backend/token*.json
+kids-studio/.env
+kids-studio/client_secret*.json
+kids-studio/token*.json
+kids-studio/kids_client_secret*.json
+kids-studio/kids_token*.json
+
+# ── Python ─────────────────────────────────────────────────────────────────────
+__pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Virtual environments ────────────────────────────────────────────────────────
+venv/
+venv_new/
+.venv/
+backend/venv/
+backend/venv_new/
+backend/.venv/
+
+# ── Node / Next.js ─────────────────────────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+frontend/.next/
+frontend/out/
+.next/
+
+# ── Generated media — clips, audio, thumbnails, subtitles ─────────────────────
+*.mp4
+*.mp3
+*.wav
+*.aac
+*.srt
+*.vtt
+*.jpg
+*.jpeg
+*.png
+!storage/watermark.png
+!frontend/public/**/*.png
+!frontend/public/**/*.jpg
+
+# ── Storage directories (runtime data, not source) ────────────────────────────
+storage/
+backend/storage/
+backend copy/
+
+# ── ML model weights ───────────────────────────────────────────────────────────
+*.pt
+*.pth
+*.onnx
+*.weights
+
+# ── OS artifacts ───────────────────────────────────────────────────────────────
 .DS_Store
+Thumbs.db
+
+# ── IDE ────────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Logs & temp ────────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.temp
+/tmp/
